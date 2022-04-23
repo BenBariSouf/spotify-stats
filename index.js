@@ -61,22 +61,21 @@ app.get("/callback", (req, res) => {
 	})
 		.then((response) => {
 			if (response.status == 200) {
-				const { token_type, access_token } = response.data;
+				const { access_token, refresh_token, expires_in } = response.data;
 
-				axios
-					.get("https://api.spotify.com/v1/me", {
-						headers: {
-							Authorization: `${token_type} ${access_token}`,
-						},
-					})
-					.then((response) => {
-						res.send(response.data);
-					})
-					.catch((error) => {
-						res.send(error);
-					});
+				const queryParams = querystring.stringify({
+					access_token,
+					refresh_token,
+					expires_in,
+				});
+
+				//redirect to the frontend
+				res.redirect(`http://localhost:3000/?${queryParams}`);
 			} else {
-				res.send(response.status);
+				const queryParams = querystring.stringify({
+					error: "Invalid token",
+				});
+				res.redirect(`/?${queryParams}`);
 			}
 		})
 		.catch((error) => {
