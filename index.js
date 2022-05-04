@@ -31,7 +31,8 @@ app.get("/login", (req, res) => {
 	const state = generateRandomString(16);
 	res.cookie(stateKey, state);
 
-	const scope = "user-read-private user-read-email user-top-read";
+	//authorization scopes
+	const scope = ["user-read-private", " user-read-email", "user-top-read", "user-library-read"].join(" ");
 
 	const queryParameters = querystring.stringify({
 		response_type: "code",
@@ -109,6 +110,12 @@ app.get("/refresh_token", (req, res) => {
 		.catch((error) => {
 			res.send(error);
 		});
+});
+app.get("/", (req, res) => {
+	console.log(req.query.queryParameters);
+	if ((req.query.queryParameters = true)) {
+		res.redirect("/profile");
+	}
 });
 
 const port = 8888;
