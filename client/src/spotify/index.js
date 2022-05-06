@@ -62,7 +62,7 @@ const refreshToken = async () => {
 	}
 };
 //Handles the logic for retrieving the access token from localStorage
-export const getAccessToken = () => {
+const getAccessToken = () => {
 	//retrieve the access and refresh tokens from the url
 	const queryString = window.location.search;
 	const urlParams = new URLSearchParams(queryString);
@@ -98,4 +98,32 @@ export const getAccessToken = () => {
 		return queryParams[LOCAL_STORAGE_VALUES.accessToken];
 	}
 };
-// export const accessToken = getAccessToken();
+export const access_token = getAccessToken();
+
+/**
+ * //////////////////////////////////////////////////////////////////////////////////////////////////
+ */
+//Axios global request headers
+
+axios.defaults.baseURL = "https://api.spotify.com/v1";
+axios.defaults.headers.common["Authorization"] = `Bearer ${access_token}`;
+axios.defaults.headers.post["Content-Type"] = "application/json";
+
+// Get current user's profile
+export const getCurrentUserProfile = () => axios.get("/me");
+
+//Get current user's playlists
+export const getCurrentUserPlaylists = () => axios.get("/me/playlists");
+
+//Get current user's favourite tracks
+export const getCurrentUserFavouriteTracks = () => axios.get("/me/tracks");
+
+//Get the current user's top artists or tracks based on calculated affinity
+export const getCurrentUserTopArtists = (time_range = "short_term") => axios.get(`/me/top/artists?time_range=${time_range}`);
+export const getCurrentUserTopTracks = (time_range = "short_term") => axios.get(`/me/top/tracks?time_range=${time_range}`);
+
+// Get a Playlist's tracks
+export const getPlaylistById = (playlist_id) => axios.get(`/playlists/${playlist_id}`);
+
+//Get Audio Features for Several Tracks
+export const getAudioFeaturesForTracks = (ids) => axios.get(`/audio-features?ids=${ids}`);
