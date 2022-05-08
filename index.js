@@ -10,11 +10,7 @@ const REDIRECT_URI = process.env.REDIRECT_URI;
 
 const app = express();
 
-/**
- * Generates a random string containing numbers and letters
- * @param  {number} length The length of the string
- * @return {string} The generated string
- */
+//Function to generate a random string containing numbers and letters
 const generateRandomString = (length) => {
 	let result = "";
 	let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -111,11 +107,8 @@ app.get("/refresh_token", (req, res) => {
 			res.send(error);
 		});
 });
-app.get("/", (req, res) => {
-	console.log(req.query.queryParameters);
-	if ((req.query.queryParameters = true)) {
-		res.redirect("/profile");
-	}
+app.get("/ana", (req, res) => {
+	console.log(123);
 });
 
 const port = 8888;
