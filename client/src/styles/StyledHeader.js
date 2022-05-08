@@ -99,6 +99,11 @@ const StyledHeader = styled.header`
 			}
 		}
 	}
+
+	.header__owner {
+		color: var(--white);
+		font-weight: 600;
+	}
 `;
 
 export default StyledHeader;

@@ -43,6 +43,7 @@ const StyledSection = styled.section`
 		}
 
 		a {
+			cursor: pointer;
 			&:hover,
 			&:focus {
 				color: var(--white);
