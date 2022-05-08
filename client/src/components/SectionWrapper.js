@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { StyledSection } from "../styles";
 
-const SectionWrapper = ({ children, title, seeAllLink, breadcrumb }) => (
+const SectionWrapper = ({ children, title, seeAllLink, breadcrumb = false, back = false, navigate }) => (
 	<StyledSection>
 		<div className="section__inner">
 			<div className="section__top">
@@ -9,6 +9,13 @@ const SectionWrapper = ({ children, title, seeAllLink, breadcrumb }) => (
 					{breadcrumb && (
 						<span className="section__breadcrumb">
 							<Link to="/">Profile</Link>
+						</span>
+					)}
+					{back && (
+						<span className="section__breadcrumb">
+							<a type="button" onClick={() => navigate(-1)}>
+								<span>Back</span>
+							</a>
 						</span>
 					)}
 					{title && <>{seeAllLink ? <Link to={seeAllLink}>{title}</Link> : <span>{title}</span>}</>}
