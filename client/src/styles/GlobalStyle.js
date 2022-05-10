@@ -114,6 +114,16 @@ const GlobalStyle = createGlobalStyle`
     text-align: center;
     padding: var(--spacing-xxl);
   }
+
+  .footer{
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom:var(--spacing-xl);
+      color: var(--light-grey);
+      position: relative; 
+      top: -10px;
+  }
 `;
 
 export default GlobalStyle;
