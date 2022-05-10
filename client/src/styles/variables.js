@@ -9,6 +9,7 @@ const variables = css`
 		--light-grey: #b3b3b3;
 		--white: #ffffff;
 		--green: #1db954;
+		--off-green: #1ed760;
 
 		--font: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 
