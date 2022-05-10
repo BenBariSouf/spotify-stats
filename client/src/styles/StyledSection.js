@@ -57,7 +57,7 @@ const StyledSection = styled.section`
 		text-transform: uppercase;
 		color: var(--light-grey);
 		font-size: var(--fz-xxs);
-		font-weight: 700;
+		font-weight: 800;
 		letter-spacing: 0.1em;
 		padding-bottom: 2px;
 	}
