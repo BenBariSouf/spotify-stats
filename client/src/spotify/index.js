@@ -94,6 +94,8 @@ const getAccessToken = () => {
 		//Set timestamp
 		window.localStorage.setItem(keys.timestamp, Date.now());
 
+		window.location.reload();
+
 		//Return the access token
 		return queryParams[LOCAL_STORAGE_VALUES.accessToken];
 	}
@@ -109,6 +111,7 @@ axios.defaults.baseURL = "https://api.spotify.com/v1";
 axios.defaults.headers.common["Authorization"] = `Bearer ${access_token}`;
 axios.defaults.headers.post["Content-Type"] = "application/json";
 
+///User
 // Get current user's profile
 export const getCurrentUserProfile = () => axios.get("/me");
 
@@ -122,6 +125,7 @@ export const getCurrentUserFavouriteTracks = () => axios.get("/me/tracks");
 export const getCurrentUserTopArtists = (time_range = "short_term") => axios.get(`/me/top/artists?time_range=${time_range}`);
 export const getCurrentUserTopTracks = (time_range = "short_term") => axios.get(`/me/top/tracks?time_range=${time_range}`);
 
+///Artist
 // Get artist's profile
 export const getArtist = (artist_id) => axios.get(`/artists/${artist_id}`);
 
