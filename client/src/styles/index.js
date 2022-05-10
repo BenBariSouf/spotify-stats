@@ -5,7 +5,8 @@ import StyledTrackList from "./StyledTrackList";
 import StyledRangeButtons from "./StyledRangeButtons";
 import StyledDropDown from "./StyledDropDown";
 import StyledArtistInfo from "./StyledArtistInfo";
+import StyledTrackInfo from "./StyledTrackInfo";
 
-export { StyledHeader, StyledGrid, StyledSection, StyledTrackList, StyledRangeButtons, StyledDropDown, StyledArtistInfo };
+export { StyledHeader, StyledGrid, StyledSection, StyledTrackList, StyledRangeButtons, StyledDropDown, StyledArtistInfo, StyledTrackInfo };
 
 export { default as GlobalStyle } from "./GlobalStyle";

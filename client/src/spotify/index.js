@@ -125,8 +125,28 @@ export const getCurrentUserTopTracks = (time_range = "short_term") => axios.get(
 // Get artist's profile
 export const getArtist = (artist_id) => axios.get(`/artists/${artist_id}`);
 
+///Playlist
 // Get a Playlist's tracks
-export const getPlaylistById = (playlist_id) => axios.get(`/playlists/${playlist_id}`);
+export const getPlaylist = (playlist_id) => axios.get(`/playlists/${playlist_id}`);
+
+///Track
+// Get a track by its id
+export const getTrack = (track_id) => axios.get(`/tracks/${track_id}`);
+
+// Get a track's audio analysis
+export const getTrackAnalysis = (track_id) => axios.get(`/audio-analysis/${track_id}`);
+
+// Get a track's audio features
+export const getTrackFeatures = (track_id) => axios.get(`/audio-features/${track_id}`);
 
 //Get Audio Features for Several Tracks
 export const getAudioFeaturesForTracks = (ids) => axios.get(`/audio-features?ids=${ids}`);
+
+export const getTrackInfo = (track_id) =>
+	axios.all([getTrack(track_id), getTrackAnalysis(track_id), getTrackFeatures(track_id)]).then(
+		axios.spread((track, audioAnalysis, audioFeatures) => ({
+			track: track.data,
+			audioAnalysis: audioAnalysis.data,
+			audioFeatures: audioFeatures.data,
+		}))
+	);
