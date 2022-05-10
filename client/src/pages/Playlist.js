@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { getPlaylistById, getAudioFeaturesForTracks } from "../spotify";
+import { getPlaylist, getAudioFeaturesForTracks } from "../spotify";
 import { catchErrors } from "../utils";
 import { TrackList, SectionWrapper, Loader } from "../components";
 import { StyledHeader, StyledDropDown } from "../styles";
@@ -18,7 +18,7 @@ const Playlist = () => {
 	// Get playlist data based on ID from route params
 	useEffect(() => {
 		const fetchData = async () => {
-			const { data } = await getPlaylistById(id);
+			const { data } = await getPlaylist(id);
 			setPlaylist(data);
 			setTracksData(data.tracks);
 		};
