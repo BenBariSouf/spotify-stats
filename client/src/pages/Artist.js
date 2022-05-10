@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { getArtist } from "../spotify";
 import { catchErrors } from "../utils";
 import { SectionWrapper, Loader } from "../components";
@@ -15,7 +15,6 @@ const Artist = () => {
 		const fetchData = async () => {
 			const { data } = await getArtist(id);
 			setArtist(data);
-			console.log(data);
 		};
 
 		catchErrors(fetchData());

@@ -107,9 +107,6 @@ app.get("/refresh_token", (req, res) => {
 			res.send(error);
 		});
 });
-app.get("/ana", (req, res) => {
-	console.log(123);
-});
 
 const port = 8888;
 app.listen(port, () => {
