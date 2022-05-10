@@ -40,9 +40,11 @@ const StyledTrackList = styled.ul`
 	.track__item__title-group {
 		display: flex;
 		align-items: center;
+
 		@media (max-width: 768px) {
 			display: flex;
 			justify-content: space-between;
+			text-align: center;
 		}
 	}
 
