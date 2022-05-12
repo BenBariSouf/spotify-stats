@@ -85,7 +85,7 @@ const GlobalStyle = createGlobalStyle`
   .app {
     min-height: 100vh;
   }
-
+  
   .sr-only {
     position: absolute;
     width: 1px;
@@ -113,16 +113,6 @@ const GlobalStyle = createGlobalStyle`
     font-size: var(--fz-lg);
     text-align: center;
     padding: var(--spacing-xxl);
-  }
-
-  .footer{
-      display:flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom:var(--spacing-xl);
-      color: var(--light-grey);
-      position: relative; 
-      top: -10px;
   }
 `;
 

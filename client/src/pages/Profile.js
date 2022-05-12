@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import { catchErrors } from "../utils";
 import { getCurrentUserProfile, getCurrentUserPlaylists, getCurrentUserTopTracks, getCurrentUserTopArtists, getCurrentUserFavouriteTracks } from "../spotify";
 import { SectionWrapper, ArtistsGrid, TrackList, PlaylistsGrid, Loader } from "../components";
-import { StyledHeader } from "../styles";
+import { StyledHeader, StyledFooter } from "../styles";
 import { FaUserAlt } from "react-icons/fa";
+import { BsGithub } from "react-icons/bs";
 
 const Profile = () => {
 	const [profile, setProfile] = useState(null);
@@ -42,6 +43,9 @@ const Profile = () => {
 			{profile && (
 				<>
 					<StyledHeader type="user">
+						<a href="https://github.com/BenBariSouf/spotify-stats" title="View on Github" target="_blank">
+							<BsGithub size={22} />
+						</a>
 						<div className="header__inner">
 							{profile.images.length && profile.images[0].url ? (
 								<img className="header__img" src={profile.images[0].url} alt="Avatar" />
@@ -84,6 +88,15 @@ const Profile = () => {
 								<SectionWrapper title="Public Playlists" seeAllLink="/playlists">
 									<PlaylistsGrid playlists={playlists.items.slice(0, 10)} />
 								</SectionWrapper>
+
+								<StyledFooter>
+									<p>
+										Made with ❤️ by{" "}
+										<a href="https://github.com/BenBariSouf" target="_blank">
+											Soufiane
+										</a>
+									</p>
+								</StyledFooter>
 							</>
 						) : (
 							<Loader />

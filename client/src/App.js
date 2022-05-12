@@ -3,7 +3,6 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import styled from "styled-components/macro";
 import { GlobalStyle } from "./styles";
 import { logout, access_token } from "./spotify";
-import MadeWithLove from "react-made-with-love";
 
 import { Login, Profile, TopArtists, Artist, TopTracks, Playlists, Playlist, Track } from "./pages";
 
@@ -70,10 +69,6 @@ const App = () => {
 					</Routes>
 				</>
 			)}
-
-			<div className="footer">
-				<MadeWithLove by="Soufiane" emoji link="https://github.com/BenBariSouf" />
-			</div>
 		</div>
 	);
 };
