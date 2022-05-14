@@ -2,11 +2,13 @@ import { Link } from "react-router-dom";
 import { formatDuration } from "../utils";
 import { StyledTrackList } from "../styles";
 import { FaHeart } from "react-icons/fa";
+import TrackHeader from "./TrackHeader";
 
 const TrackList = ({ tracks, savedTracks = [] }) => (
 	<>
 		{tracks && tracks.length ? (
 			<StyledTrackList>
+				<TrackHeader />
 				{tracks.map((track, index) => (
 					<li className="track__item" key={index}>
 						<div className="track__item__num">{index + 1}</div>
@@ -50,8 +52,8 @@ const TrackList = ({ tracks, savedTracks = [] }) => (
 							) : (
 								<span />
 							)}
-							<div className="track__item__duration">{formatDuration(track.duration_ms)}</div>
 						</div>
+						<div className="track__item__duration">{formatDuration(track.duration_ms)}</div>
 					</li>
 				))}
 			</StyledTrackList>

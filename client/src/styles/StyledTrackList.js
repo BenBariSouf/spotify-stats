@@ -18,7 +18,7 @@ const StyledTrackList = styled.ul`
 		cursor: default;
 
 		@media (min-width: 768px) {
-			grid-template-columns: 20px 4fr 2fr minmax(60px, 1fr);
+			grid-template-columns: 20px 3fr 1fr minmax(50px, 1fr) minmax(50px, 1fr);
 			padding: var(--spacing-xs) var(--spacing-sm);
 		}
 
@@ -28,11 +28,32 @@ const StyledTrackList = styled.ul`
 		}
 	}
 
+	.tracklist__header {
+		display: grid;
+		grid-template-columns: 20px 3fr 1fr minmax(50px, 1fr) minmax(50px, 1fr);
+		grid-gap: var(--spacing-md);
+		padding: var(--spacing-xs);
+		color: var(--light-grey);
+		font-size: var(--fz-xs);
+		cursor: default;
+		p {
+			text-transform: uppercase;
+		}
+	}
+
+	.separator {
+		border: none;
+		height: 1px;
+		background-color: var(--grey);
+		margin-top: -5px;
+		margin-bottom: var(--spacing-md);
+	}
+
 	.track__item__num {
 		display: flex;
 		align-items: center;
 		justify-content: flex-end;
-		font-size: var(--fz-md);
+		font-size: var(--fz-xs);
 		font-variant-numeric: tabular-nums;
 		overflow: visible;
 	}
@@ -70,8 +91,9 @@ const StyledTrackList = styled.ul`
 		}
 	}
 	.tooltip {
-		position: relative;
+		position: absolute;
 		display: inline-block;
+		right: 150px;
 	}
 
 	.tooltip .tooltiptext {
@@ -80,7 +102,7 @@ const StyledTrackList = styled.ul`
 		background-color: #595959;
 		color: #fff;
 		text-align: center;
-		padding: 6px 0;
+		padding: 7px 2px;
 		border-radius: 6px;
 		bottom: 100%;
 		left: 50%;
