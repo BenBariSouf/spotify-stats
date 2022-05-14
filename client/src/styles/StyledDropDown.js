@@ -27,7 +27,7 @@ const StyledDropDown = styled.div`
 		appearance: none;
 		background-color: ${(props) => (props.active ? "rgba(255,255,255,0.1)" : "transparent")};
 		color: white;
-		border: 0;
+		border: 1px thin white;
 		border-radius: var(--border-radius-subtle);
 		font-size: var(--fz-sm);
 		font-family: inherit;
