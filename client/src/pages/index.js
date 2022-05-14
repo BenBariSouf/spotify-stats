@@ -6,5 +6,6 @@ import TopTracks from "./TopTracks";
 import Playlists from "./Playlists";
 import Playlist from "./Playlist";
 import Track from "./Track";
+import RecentlyPlayed from "./RecentlyPlayed";
 
-export { Login, Profile, TopArtists, Artist, TopTracks, Playlists, Playlist, Track };
+export { Login, Profile, TopArtists, Artist, TopTracks, Playlists, Playlist, Track, RecentlyPlayed };

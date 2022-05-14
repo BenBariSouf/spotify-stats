@@ -4,7 +4,7 @@ import styled from "styled-components/macro";
 import { GlobalStyle } from "./styles";
 import { logout, access_token } from "./spotify";
 
-import { Login, Profile, TopArtists, Artist, TopTracks, Playlists, Playlist, Track } from "./pages";
+import { Login, Profile, TopArtists, Artist, TopTracks, Playlists, Playlist, Track, RecentlyPlayed } from "./pages";
 
 const StyledLogoutButton = styled.button`
 	position: absolute;
@@ -66,6 +66,7 @@ const App = () => {
 						<Route path="/playlists" element={<Playlists />} />
 						<Route path="/playlists/:id" element={<Playlist />} />
 						<Route path="/tracks/:id" element={<Track />} />
+						<Route path="/recently-played" element={<RecentlyPlayed />} />
 					</Routes>
 				</>
 			)}

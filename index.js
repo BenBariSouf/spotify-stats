@@ -28,7 +28,7 @@ app.get("/login", (req, res) => {
 	res.cookie(stateKey, state);
 
 	//authorization scopes
-	const scope = ["user-read-private", " user-read-email", "user-top-read", "user-library-read"].join(" ");
+	const scope = ["user-read-private", " user-read-email", "user-top-read", "user-library-read", "user-read-recently-played"].join(" ");
 
 	const queryParameters = querystring.stringify({
 		response_type: "code",

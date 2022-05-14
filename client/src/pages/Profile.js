@@ -1,7 +1,14 @@
 import { useState, useEffect } from "react";
 import { catchErrors } from "../utils";
-import { getCurrentUserProfile, getCurrentUserPlaylists, getCurrentUserTopTracks, getCurrentUserTopArtists, getCurrentUserFavouriteTracks } from "../spotify";
-import { SectionWrapper, ArtistsGrid, TrackList, PlaylistsGrid, Loader } from "../components";
+import {
+	getCurrentUserProfile,
+	getCurrentUserPlaylists,
+	getCurrentUserTopTracks,
+	getCurrentUserTopArtists,
+	getCurrentUserFavouriteTracks,
+	getRecentlyPlayedTracks,
+} from "../spotify";
+import { SectionWrapper, ArtistsGrid, TrackList, PlaylistsGrid, Loader, RecentlyPlayedGrid } from "../components";
 import { StyledHeader, StyledFooter } from "../styles";
 import { FaUserAlt } from "react-icons/fa";
 import { BsGithub } from "react-icons/bs";
@@ -13,11 +20,15 @@ const Profile = () => {
 	const [topArtists, setTopArtists] = useState(null);
 	const [topTracks, setTopTracks] = useState(null);
 	const [savedTracks, setSavedTracks] = useState([]);
+	const [recentlyPlayed, setRecentlyPlayed] = useState(null);
 
 	useEffect(() => {
 		const fetchData = async () => {
 			const userProfile = await getCurrentUserProfile();
 			setProfile(userProfile.data);
+
+			const recentlyPlayed = await getRecentlyPlayedTracks();
+			setRecentlyPlayed(recentlyPlayed.data);
 
 			const userPlaylists = await getCurrentUserPlaylists();
 			setPlaylists(userPlaylists.data);
@@ -77,6 +88,12 @@ const Profile = () => {
 						</div>
 					</StyledHeader>
 					<main>
+						{recentlyPlayed && (
+							<SectionWrapper title="Recently played tracks" seeAllLink="/recently-played" seeAllText="See More">
+								<RecentlyPlayedGrid tracks={recentlyPlayed.items.slice(0, 6)} />
+							</SectionWrapper>
+						)}
+
 						{topArtists && topTracks && playlists ? (
 							<>
 								<SectionWrapper title="Top artists this month" seeAllLink="/top-artists">
