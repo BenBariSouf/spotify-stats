@@ -17,7 +17,7 @@ const TopArtists = () => {
 	}, [activeRange]);
 
 	return (
-		<main>
+		<main style={{ marginTop: "40px" }}>
 			<SectionWrapper title="Top Artists" breadcrumb={true}>
 				<TimeRangeButtons activeRange={activeRange} setActiveRange={setActiveRange} />
 
