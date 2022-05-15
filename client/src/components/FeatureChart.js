@@ -68,7 +68,7 @@ const FeatureChart = (props) => {
 							display: true,
 							text: "Audio Features",
 							font: {
-								size: 18,
+								size: 19,
 							},
 							padding: {
 								top: 40,

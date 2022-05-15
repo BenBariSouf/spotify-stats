@@ -7,7 +7,7 @@ import { StyledTrackList } from "../styles";
 const RecentsTrackList = ({ tracks }) => (
 	<>
 		{tracks && tracks.length ? (
-			<StyledTrackList>
+			<StyledTrackList columns={5}>
 				<TrackHeader headerText="Last Played" />
 				{tracks.map(({ track, played_at }, index) => (
 					<li className="track__item" key={index}>

@@ -31,7 +31,7 @@ const variables = css`
 
 		--border-radius-subtle: 4px;
 		--border-radius-pill: 30px;
-
+		--border-radius-circle: 100%;
 		--site-max-width: 1300px;
 	}
 `;

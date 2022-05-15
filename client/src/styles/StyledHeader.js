@@ -26,6 +26,24 @@ const StyledHeader = styled.header`
 		z-index: -1;
 	}
 
+	a {
+		position: absolute;
+		display: flex;
+		align-items: center;
+		top: var(--spacing-lg);
+		right: 130px;
+		padding: var(--spacing-xs);
+		background-color: rgba(0, 0, 0, 0.7);
+		color: var(--white);
+		border-radius: var(--border-radius-circle);
+		z-index: 10;
+		&:hover {
+			cursor: pointer;
+			color: var(--black);
+			background-color: var(--white);
+		}
+	}
+
 	.header__inner {
 		display: flex;
 		align-items: center;

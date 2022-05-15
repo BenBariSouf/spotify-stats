@@ -8,7 +8,7 @@ const StyledTrackList = styled.ul`
 	.track__item {
 		display: grid;
 		align-items: center;
-		grid-template-columns: 20px 1fr;
+		grid-template-columns: ${(props) => (props.columns == 5 ? "20px 3fr minmax(120px, 1fr)" : "20px 3fr 2fr")};
 		grid-gap: var(--spacing-md);
 		padding: var(--spacing-xs);
 		color: var(--light-grey);
@@ -16,9 +16,9 @@ const StyledTrackList = styled.ul`
 		border-radius: var(--border-radius-subtle);
 		transition: background-color 0.3s ease;
 		cursor: default;
-
 		@media (min-width: 768px) {
-			grid-template-columns: 20px 3fr 1fr minmax(50px, 1fr) minmax(50px, 1fr);
+			display: grid;
+			grid-template-columns: 20px ${(props) => (props.columns == 5 ? " 5fr" : "4fr ")} 2.5fr minmax(50px, 1fr) minmax(50px, 1fr);
 			padding: var(--spacing-xs) var(--spacing-sm);
 		}
 
@@ -30,7 +30,9 @@ const StyledTrackList = styled.ul`
 
 	.tracklist__header {
 		display: grid;
-		grid-template-columns: 20px 3fr 1fr minmax(50px, 1fr) minmax(50px, 1fr);
+		align-items: center;
+		justify-content: space-between;
+		grid-template-columns: 2.5fr 2fr minmax(50px, 1fr);
 		grid-gap: var(--spacing-md);
 		padding: var(--spacing-xs);
 		color: var(--light-grey);
@@ -38,6 +40,18 @@ const StyledTrackList = styled.ul`
 		cursor: default;
 		p {
 			text-transform: uppercase;
+		}
+
+		@media (min-width: 768px) {
+			display: grid;
+			grid-template-columns: 20px ${(props) => (props.columns == 5 ? " 5fr" : "4fr ")} 2.5fr minmax(50px, 1fr) minmax(50px, 1fr);
+			padding: var(--spacing-xs) var(--spacing-sm);
+		}
+
+		.tracklist__header__album {
+			@media (max-width: 768px) {
+				display: none;
+			}
 		}
 	}
 
@@ -109,6 +123,10 @@ const StyledTrackList = styled.ul`
 		position: absolute;
 		z-index: 1;
 		margin-bottom: var(--spacing-xxs);
+		@media (max-width: 768px) {
+			position: absolute;
+			left: 75px;
+		}
 	}
 
 	.tooltip:hover .tooltiptext {
@@ -131,9 +149,15 @@ const StyledTrackList = styled.ul`
 	}
 
 	.track__item__saved__sm {
+		position: absolute;
+		left: 100px;
 		@media (min-width: 768px) {
 			display: none;
 		}
+	}
+
+	.hash {
+		margin-left: var(--spacing-xs);
 	}
 
 	.track__item__duration {

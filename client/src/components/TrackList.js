@@ -30,27 +30,26 @@ const TrackList = ({ tracks, savedTracks = [] }) => (
 										))}
 									</div>
 								</div>
-
-								{savedTracks.includes(track.id) ? (
-									<div className="tooltip">
-										<span className="tooltiptext">Liked</span>
-										<FaHeart color="#1db954" className="track__item__saved__sm" />
-									</div>
-								) : (
-									<span />
-								)}
 							</div>
 						</Link>
+						{savedTracks.includes(track.id) ? (
+							<div className="tooltip">
+								<span className="tooltiptext">Liked</span>
+								<FaHeart color="#1db954" className="track__item__saved__sm" />
+							</div>
+						) : (
+							<></>
+						)}
 						<div className="track__item__album overflow-ellipsis">{track.album.name}</div>
 
-						<div className="track__item__details">
+						<div className="">
 							{savedTracks.includes(track.id) ? (
 								<div className="tooltip">
 									<span className="tooltiptext">Liked</span>
 									<FaHeart color="#1db954" className="track__item__saved" />
 								</div>
 							) : (
-								<span />
+								<></>
 							)}
 						</div>
 						<div className="track__item__duration">{formatDuration(track.duration_ms)}</div>
