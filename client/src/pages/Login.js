@@ -6,6 +6,10 @@ const StyledLoginContainer = styled.main`
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
+
+	h1 {
+		margin-bottom: var(--spacing-md);
+	}
 `;
 
 const StyledLoginButton = styled.a`
@@ -28,6 +32,7 @@ const StyledLoginButton = styled.a`
 const Login = () => (
 	<StyledLoginContainer>
 		<h1>Welcome to Spotify Stats</h1>
+		<h3>THE web app for visualizing your personalized Spotify data</h3>
 		<StyledLoginButton href="http://localhost:8888/login">Log in to Spotify</StyledLoginButton>
 	</StyledLoginContainer>
 );
