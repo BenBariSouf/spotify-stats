@@ -3,12 +3,18 @@ require("dotenv").config();
 const express = require("express");
 const querystring = require("querystring");
 const axios = require("axios");
+const path = require("path");
 
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
 const REDIRECT_URI = process.env.REDIRECT_URI;
+const FRONTEND_URI = process.env.FRONTEND_URI;
+const PORT = process.env.PORT || 8888;
 
 const app = express();
+
+// Priority serve any static files.
+app.use(express.static(path.resolve(__dirname, "./client/build")));
 
 //Function to generate a random string containing numbers and letters
 const generateRandomString = (length) => {
@@ -67,7 +73,7 @@ app.get("/callback", (req, res) => {
 				});
 
 				//redirect to the frontend
-				res.redirect(`http://localhost:3000/?${queryParams}`);
+				res.redirect(`${FRONTEND_URI}/?${queryParams}`);
 			} else {
 				const queryParams = querystring.stringify({
 					error: "Invalid token",
@@ -108,7 +114,11 @@ app.get("/refresh_token", (req, res) => {
 		});
 });
 
-const port = 8888;
-app.listen(port, () => {
-	console.log(`Server is running on port ${port}`);
+// All remaining requests return the React app, so it can handle routing.
+app.get("*", (req, res) => {
+	res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
+});
+
+app.listen(PORT, () => {
+	console.log(`Server is running on port ${PORT}`);
 });
