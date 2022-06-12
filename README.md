@@ -53,7 +53,7 @@ Create an `.env` file in the root of the project based on `.env.example`
 CLIENT_ID = [client id optained from the Spotify Developer Dashboard]
 CLIENT_SECRET = [client secret optained from the Spotify Developer Dashboard]
 FRONTEND_URI = http://localhost:3000
-REDIRECT_URI = http://localhost:4000/callback
+REDIRECT_URI = http://localhost:8888/callback
 ```
 
 To start up the app locally
