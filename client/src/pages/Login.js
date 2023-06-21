@@ -29,7 +29,7 @@ const StyledLoginButton = styled.a`
 	}
 `;
 
-const LOGIN_URI = process.env.NODE_ENV !== "production" ? "http://localhost:8888/login" : "https://spotify-statsis.herokuapp.com/login";
+const LOGIN_URI = process.env.NODE_ENV !== "production" ? "http://localhost:8888/login" : "https://spotify-statis.onrender.com/login";
 
 const Login = () => (
 	<StyledLoginContainer>

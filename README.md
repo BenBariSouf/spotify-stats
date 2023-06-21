@@ -2,7 +2,7 @@
 
 > A web app for visualizing personalized Spotify statistics
 
-Try it out [here.](https://spotify-statsis.herokuapp.com/)
+Try it out [here.](https://spotify-statis.onrender.com/)
 
 ## Features
 
