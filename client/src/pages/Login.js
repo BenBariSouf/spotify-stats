@@ -29,8 +29,8 @@ const StyledLoginButton = styled.a`
 	}
 `;
 
-// const LOGIN_URI = process.env.NODE_ENV !== "production" ? "http://localhost:8888/login" : "https://spotify-statis.onrender.com/login";
-const LOGIN_URI = process.env.NODE_ENV !== "production" ? "http://localhost:8888/login" : "https://web-production-f010d.up.railway.app/login";
+const LOGIN_URI = process.env.NODE_ENV !== "production" ? "http://localhost:8888/login" : "https://spotify-statis.onrender.com/login";
+// const LOGIN_URI = process.env.NODE_ENV !== "production" ? "http://localhost:8888/login" : "https://web-production-f010d.up.railway.app/login";
 
 
 const Login = () => (
